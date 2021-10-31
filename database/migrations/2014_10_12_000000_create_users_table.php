@@ -25,7 +25,6 @@ class CreateUsersTable extends Migration
             $table->integer('houseNr');
             $table->string('iban');
             $table->string('creditCardType');
-            $table->rememberToken();
             $table->string('email')->unique();
             $table->string('password');
             $table->rememberToken();
