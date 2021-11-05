@@ -2,9 +2,12 @@
 
 namespace Database\Seeders;
 
+
+use Database\Factories\AdressFactory;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Faker\Factory;
+use App\Models\Address;
 
 class AddressSeeder extends Seeder
 {
@@ -15,21 +18,7 @@ class AddressSeeder extends Seeder
      */
     public function run()
     {
-        $faker = Factory::create();
-
-        // 10 Fake addresses created with faker
-        for ($i = 0; $i < 10; $i++) {
-            DB::table('addresses')->insert([
-                'country' => $faker->country,
-                'city' => $faker->city,
-                'postcode' => $faker->numberBetween(10, 9999),
-                'streetName' => $faker->streetName,
-                'buildingNumber' => $faker->buildingNumber,
-                'latitude' => $faker->latitude,
-                'longitude' => $faker->longitude,
-                'created_at' => $faker->unixTime,
-                'updated_at' => $faker->unixTime,
-            ]);
-        }
+        // Create 15 fake addressses
+        Address::factory()->count(15)->create();
     }
 }

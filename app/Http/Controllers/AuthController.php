@@ -5,19 +5,20 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use App\Http\Resources\UserResource;
 
 class AuthController extends Controller
 {
     public function register(Request $request)
     {
         $fields = $request->validate([
-            'name' => 'required|string',
+            'userName' => 'required|string',
             'email' => 'required|string|unique:users,email',
-            'password' => 'required|string|confirmed'
+            'password' => 'required|string'
         ]);
 
-        $user = User::create([
-            'name' => $fields['name'],
+        $user = User::factory()->create([
+            'userName' => $fields['userName'],
             'email' => $fields['email'],
             'password' => bcrypt($fields['password'])
         ]);
@@ -25,7 +26,7 @@ class AuthController extends Controller
         $token = $user->createToken('myapptoken')->plainTextToken;
 
         $response = [
-            'user' => $user,
+            'user' => new UserResource(User::findOrFail($user->id)),
             'token' => $token
         ];
 
@@ -64,6 +65,8 @@ class AuthController extends Controller
         auth()->user()->tokens()->delete();
 
         return [
+            'username' => auth()->user()->userName,
+            'email' => auth()->user()->email,
             'message' => 'Logged out'
         ];
     }
