@@ -22,6 +22,8 @@ class CreateAddressesTable extends Migration
             $table->integer('buildingNumber');
             $table->string('latitude');
             $table->string('longitude');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }

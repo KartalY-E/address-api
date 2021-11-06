@@ -26,15 +26,11 @@ class UserFactory extends Factory
             'firstName' => $this->faker->firstName,
             'lastName' => $this->faker->lastName,
             'userName' => $this->faker->userName,
-            'age' => $this->faker->numberBetween(1, 99),
-            'country' => $this->faker->country,
-            'city' => $this->faker->address,
-            'street' => $this->faker->streetName,
-            'houseNr' => $this->faker->numberBetween(1, 1500),
+            'age' => $this->faker->numberBetween(15, 99),
             'iban' => $this->faker->iban,
             'creditCardType' => $this->faker->creditCardType,
             'email' => $this->faker->email,
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // 'password'
             'created_at' => $this->faker->unixTime,
             'updated_at' => $this->faker->unixTime,
         ];

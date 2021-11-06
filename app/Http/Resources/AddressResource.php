@@ -3,6 +3,7 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use App\Models\User;
 
 class AddressResource extends JsonResource
 {
@@ -22,6 +23,7 @@ class AddressResource extends JsonResource
             'buildingNumber' => $this->buildingNumber,
             'latitude' => $this->latitude,
             'longitude' => $this->longitude,
+            'user' => new UserResource(User::findOrFail($this->user_id))
         ];
     }
 }

@@ -19,15 +19,10 @@ class CreateUsersTable extends Migration
             $table->string('lastName');
             $table->string('userName');
             $table->integer('age');
-            $table->string('country');
-            $table->string('city');
-            $table->string('street');
-            $table->integer('houseNr');
             $table->string('iban');
             $table->string('creditCardType');
             $table->string('email')->unique();
             $table->string('password');
-            $table->rememberToken();
             $table->timestamps();
         });
     }

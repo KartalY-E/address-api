@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Address;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class AddressFactory extends Factory
@@ -22,6 +23,8 @@ class AddressFactory extends Factory
     public function definition()
     {
         return [
+            // Random user added exept 1
+            'user_id' => User::all()->random()->id,
             'country' => $this->faker->country,
             'city' => $this->faker->city,
             'postcode' => $this->faker->numberBetween(10, 9999),
