@@ -1,8 +1,13 @@
-# Laravel 8 (address-api)
+# Laravel 8 ~ address-api
 
 #### Description
 
-Small api with fake addresses
+Small api with fake addresses and a random user assign to it
+
+#### Seeders
+
+-   AddressSeeder creates 15 fake addresses with AddressFactory
+-   UserSeeder create 15 fake users with UserFactory
 
 #### Guest can
 
@@ -14,10 +19,5 @@ Small api with fake addresses
 
 #### Logged in users can
 
--   GET /api/address return all addresses
+-   GET /api/address return all addresses with the user
 -   POST /api/logout return (username,email) & removes Bearer token
-
-#### Seeders
-
--   AddressSeeder creates 15 fake addresses
--   UserSeeder create 1 admin
