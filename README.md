@@ -19,5 +19,11 @@ Small api with fake addresses and a random user assign to it
 
 #### Logged in users can
 
--   GET /api/address return all addresses with the user
--   POST /api/logout return (username,email) & removes Bearer token
+-   GET     /api/address return all addresses with the user
+-   POST    /api/logout return (username,email) & removes Bearer token
+
+#### Admins can
+
+-   POST        /api/address create an address
+-   PUT/PATCH   /api/address/{id} update an address
+-   DELETE      /api/address/{id} delete an address

@@ -18,7 +18,15 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        // Test Users
+        // 1 admin created
+        User::factory()->create([
+            'is_admin' => true,
+            'email' => 'admin@gmail.com',
+            'firstName' => 'yunus',
+            'lastName' => 'kartal',
+        ]);
+
+        // Creating 15 Users 
         User::factory()->count(15)->create();
     }
 }

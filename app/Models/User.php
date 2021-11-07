@@ -22,10 +22,11 @@ class User extends Authenticatable
         'lastName',
         'userName',
         'age',
-        'email',
-        'password',
         'iban',
         'creditCardType',
+        'email',
+        'password',
+        'admin',
     ];
 
     /**

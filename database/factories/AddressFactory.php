@@ -23,8 +23,8 @@ class AddressFactory extends Factory
     public function definition()
     {
         return [
-            // Random user added exept 1
-            'user_id' => User::all()->random()->id,
+            // Random user added ,no admins
+            'user_id' => User::all()->where('is_admin', '==', false)->random()->id,
             'country' => $this->faker->country,
             'city' => $this->faker->city,
             'postcode' => $this->faker->numberBetween(10, 9999),

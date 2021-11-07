@@ -2,7 +2,6 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UserController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AddressController;
 
@@ -24,8 +23,13 @@ Route::post('/login', [AuthController::class, 'login']);
 
 // Protected (login and use the Bearer token)
 Route::group(['middleware' => ['auth:sanctum']], function () {
+
     // Logout remove the token
     Route::post('/logout', [AuthController::class, 'logout']);
-    // Only index all addresses
+
+    // Only index to returns all addresses
     Route::apiResource('address', AddressController::class)->only('index');
+
+    // ADMIN only routes
+    Route::apiResource('address', AddressController::class)->only('store', 'update', 'destroy')->middleware('is_admin');
 });

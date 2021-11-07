@@ -23,6 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('creditCardType');
             $table->string('email')->unique();
             $table->string('password');
+            $table->boolean('is_admin')->default(false);
             $table->timestamps();
         });
     }
