@@ -27,3 +27,6 @@ Small api with fake addresses and a random user assign to it
 -   POST        /api/address create an address
 -   PUT/PATCH   /api/address/{id} update an address
 -   DELETE      /api/address/{id} delete an address
+    <div align="center">
+        <img src="resources\views\layouts\api-data.jpg" width="60%">
+    </div>
